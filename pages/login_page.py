@@ -20,14 +20,14 @@ class LoginPage(BasePage):
     def insert_correct_username(self):
         username = self.find(self.USERNAME_BAR)
         username.send_keys('zalando.lounge34@gmail.com')
-        time.sleep(3)
+
 
     def insert_correct_password(self):
         password = self.find(self.PASSWORD_BAR)
         password.send_keys('zalandolounge34@#')
-        time.sleep(3)
+
 
     def click_login_button(self):
         self.find(self.LOGIN_BUTTON).click()
-        time.sleep(5)
+
 
