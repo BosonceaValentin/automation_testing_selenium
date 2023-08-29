@@ -18,3 +18,13 @@ def step_impl(context):
 @then("I can login in the application and I can see the product list")
 def step_impl(context):
     context.products_obj.check_avatar()
+
+@when('I introduce incorrect username and correct password')
+def step_impl(context):
+    context.login_obj.insert_incorrect_username()
+    context.login_obj.insert_correct_password()
+
+@then('I can not login in the application and I can see an error')
+def step_impl(context):
+    context.login_obj.check_incorrect_email_error()
+

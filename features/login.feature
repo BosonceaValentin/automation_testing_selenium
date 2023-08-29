@@ -14,3 +14,9 @@ Feature: Check the functionality of the login page
     When I introduce correct username and correct password
     And I click on the login button
     Then I can login in the application and I can see the product list
+
+  Scenario: Login in application with incorrect username and correct password
+    Given I am on the login page
+    When I introduce incorrect username and correct password
+    And I click on the login button
+    Then I can not login in the application and I can see an error
