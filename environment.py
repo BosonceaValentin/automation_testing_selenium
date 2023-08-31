@@ -9,4 +9,5 @@ def before_all(context):
     context.products_obj = ProductsPage()
 
 def after_all(context):
+    context.products_obj.logout()
     context.browser_obj.close()

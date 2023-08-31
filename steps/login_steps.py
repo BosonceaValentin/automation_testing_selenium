@@ -1,5 +1,6 @@
 from behave import *
 
+# Scenario 1
 @given("I am on the login page")
 def step_impl(context):
     context.login_obj.navigate_to_login_page()
@@ -18,13 +19,16 @@ def step_impl(context):
 @then("I can login in the application and I can see the product list")
 def step_impl(context):
     context.products_obj.check_avatar()
+    # context.products_obj.logout()
 
+
+# Scenario 2
 @when('I introduce incorrect username and correct password')
 def step_impl(context):
     context.login_obj.insert_incorrect_username()
     context.login_obj.insert_correct_password()
 
-@then('I can not login in the application and I can see an error')
+@then('I can not login in the application and I see an error')
 def step_impl(context):
     context.login_obj.check_incorrect_email_error()
 

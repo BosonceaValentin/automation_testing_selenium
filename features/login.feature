@@ -19,4 +19,4 @@ Feature: Check the functionality of the login page
     Given I am on the login page
     When I introduce incorrect username and correct password
     And I click on the login button
-    Then I can not login in the application and I can see an error
+    Then I can not login in the application and I see an error

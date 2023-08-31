@@ -9,7 +9,7 @@ class LoginPage(BasePage):
     PASSWORD_BAR = (By.ID, 'LoginClientForm_Password')
     LOGIN_BUTTON = (By.CSS_SELECTOR, "input[value='INTRA IN CONT']")
     COOKIES_ACCEPT = (By.CSS_SELECTOR, 'button[class="gdpr-btn btn-1"]')
-    INCORRECT_EMAIL_ERROR = (By.CSS_SELECTOR, 'div[class="generic_error_message err1"]')
+    INCORRECT_EMAIL_ERROR = (By.CSS_SELECTOR, '.err1.generic_error_message')
     def accept_cookies(self):
         self.find(self.COOKIES_ACCEPT).click()
 
@@ -33,6 +33,8 @@ class LoginPage(BasePage):
         username.send_keys('blablabla')
 
     def check_incorrect_email_error(self):
-        incorrect_email_error = self.find(self.INCORRECT_EMAIL_ERROR)
-        assert incorrect_email_error.text == 'Nu va puteti autentifica! Adresa de email introdusa este invalida!'
+        expected_error = 'Nu va puteti autentifica! Adresa de email introdusa este invalida!'
+        actual_error = self.find(self.INCORRECT_EMAIL_ERROR).text
+        assert expected_error == actual_error
+
 
